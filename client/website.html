@@ -12,21 +12,20 @@
 <body>
     <div id="main">
         <div id="start-page">
-            <h1>Välkommen till denna sida!</h1>
+            <h1>Welcome to this website!</h1>
             <div>
-                <button @click="visas = !visas, startVisa = !startVisa">Tryck här för att visa pofiler!</button>
-                <button @click="listVisa = !listVisa, friendList()">Visa vänner</button>
+                <button @click="mainShow = !mainShow, friendsListShow = false">Tryck
+                    här för att visa pofiler!</button>
+                <button @click="friendsListShow = !friendsListShow, friendList()">Visa vänner</button>
             </div>
         </div>
 
         <transition-group name="slide-list">
-            <div v-if="listVisa" id="friends-list">
+            <div v-if="friendsListShow" id="friends-list">
                 <div class="friends" v-for="user of friendsList" :key="user.id">
                     <img :src="user.image">
-                    <ul>
-                        <li>{{ user.company.title}}</li>
-                        <li>{{ user.firstName }} {{ user.lastName }}</li>
-                    </ul>
+                    <p>{{ user.company.title}}</p>
+                    <p>{{ user.firstName }} {{ user.lastName }}</p>
                     <button @click="removeFriend(user.id)">Remove friend</button>
                 </div>
             </div>
@@ -34,9 +33,9 @@
 
         <!-- </transition> -->
         <transition-group name="slide-fade">
-            <div v-if="visas" id="profiles">
-                <img id="close-img" @click="visas = !visas" src="../images/close.png">
-                <div v-if="visas" v-for="user of users" :key="user.id" class="profile">
+            <div v-if="mainShow" id="profiles">
+                <img id="close-img" @click="mainShow = !mainShow" src="../images/close.png">
+                <div v-for="user of users" :key="user.id" class="profile">
                     <transition name="slide-fade">
                         <!-- Gör det här som en template så vi kan använda om den igen! -->
                         <div v-if="popupId == user.id" id="popup">
@@ -56,16 +55,17 @@
                             <li>{{ user.firstName }} {{ user.lastName }} <img @mouseover="showHover(user.id)"
                                     src="../images/free-arrow-down-icon-3101-thumb.png">
                             </li>
-                            <p v-if="hover == user.id" @mouseleave="showHover(null)">{{user.email}}</p>
+                            <transition name="slide-fade">
+                                <p v-if="hover == user.id" @mouseleave="showHover(null)">{{user.email}}</p>
+                            </transition>
                             <li>{{ user.age }} years old</li>
                             <li>{{ user.gender }}</li>
                             <li>{{user.height}}</li>
-                            <li></li>
                         </ul>
                         <!-- <p>{{ user.firstName }} {{ user.lastName }}</p> -->
                     </div>
-                    <div id=" lower-part">
-                        <button @click="showPopup(user.id)">Visa intressant</button>
+                    <div id="lower-part">
+                        <button @click="showPopup(user.id)">More info</button>
                         <button @click="addFriendToList(user.id)">Add friend</button>
                     </div>
 

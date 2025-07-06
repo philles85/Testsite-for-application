@@ -2,7 +2,7 @@
     --main-color: #f5f5f5;
     --round-profile: 50%;
     --smooth-edges: 10px;
-    --close-button: 10px;
+    --close-button: 20px;
     --shadow-box: 5px 0 10px gray;
     --border-img: 1px solid black;
 }
@@ -12,12 +12,11 @@ body {
     background-size: cover;
 }
 
-
 #start-page {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 150px;
+    margin-top: 225px;
     align-items: center;
     position: relative;
     z-index: 1;
@@ -25,6 +24,7 @@ body {
 
 #start-page h1 {
     font-size: 75px;
+    font-family: system-ui;
 }
 
 #start-page div {
@@ -53,7 +53,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 100px;
-    height: 100vh;
     padding: 40px;
     position: absolute;
     top: 15%;
@@ -65,8 +64,7 @@ body {
 }
 
 #close-img {
-
-    height: 20px;
+    height: var(--close-button);
     position: absolute;
     top: 10px;
     right: 40px;
@@ -77,9 +75,10 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #f5f5f5;
-    border-radius: 10px;
+    border-radius: var(--smooth-edges);
     padding: 20px;
     box-shadow: 5px 0 10px gray;
+    position: relative;
 }
 
 #upper-part {
@@ -89,7 +88,7 @@ body {
 #upper-part img {
     object-fit: cover;
     border: var(--border-img);
-    border-radius: 50%;
+    border-radius: var(--round-profile);
     height: 125px;
     padding: 10px;
 }
@@ -107,7 +106,7 @@ body {
     box-shadow: var(--shadow-box);
     padding: 5px;
     position: absolute;
-    top: 100px;
+    top: 55px;
 }
 
 
@@ -115,13 +114,15 @@ body {
     display: flex;
     justify-content: center;
     gap: 25px;
+    margin-top: 50px;
 }
 
 #lower-part button {
     height: 50px;
     border: none;
     cursor: pointer;
-
+    border-radius: var(--smooth-edges);
+    box-shadow: var(--shadow-box);
 }
 
 #friends-list {
@@ -134,15 +135,32 @@ body {
     height: 100%;
     border-radius: 10px 0 0 10px;
     display: flex;
-    padding: 20px;
+    padding: 30px;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     overflow-x: scroll;
 }
 
+.friends {
+    border: var(--border-img);
+    padding: 10px;
+    border-radius: var(--smooth-edges);
+    box-shadow: var(--shadow-box);
+}
+
 #friends-list img {
-    border-radius: 50%;
+    border-radius: var(--round-profile);
     border: 1px solid black;
+}
+
+#friends-list ul {}
+
+#friends-list button {
+    height: 30px;
+    border: none;
+    box-shadow: var(--shadow-box);
+    cursor: pointer;
+    border-radius: var(--smooth-edges);
 }
 
 #popup {
@@ -173,28 +191,17 @@ body {
 #popup ul li {
     padding: 10px;
     background-color: rgb(239, 235, 235);
-    border-radius: 10px;
+    border-radius: var(--smooth-edges);
 }
-
-/* #app {} */
-
-/* .imageCircle {
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 10px;
-} */
-
 
 .slide-fade-enter-active {
     transition: all 0.9s ease;
 }
 
-/* Dessa två kan skrivas ihop */
 .slide-fade-leave-active {
     transition: all 0.9s ease-out
 }
 
-/* När den kommer in */
 .slide-fade-enter-from {
     opacity: 0;
     transform: translateY(300px);
@@ -205,7 +212,6 @@ body {
     transform: translateY(0);
 }
 
-/* När den går ut*/
 .slide-fade-leave-from {
     opacity: 1;
     transform: translateY(0);
@@ -238,7 +244,6 @@ body {
     transform: translateX(0);
 }
 
-/* När den går ut*/
 .slide-list-leave-from {
     opacity: 1;
     transform: translateX(0);

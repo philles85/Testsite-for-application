@@ -4,12 +4,12 @@ createApp({
     data() {
         return {
             startVisa: true,
-            visas: false,
+            mainShow: false,
             popupId: null,
             users: [],
             friendsList: [],
             closePopup: true,
-            listVisa: false,
+            friendsListShow: false,
             hover: null,
         }
     },
