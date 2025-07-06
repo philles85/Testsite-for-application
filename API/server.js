@@ -77,7 +77,7 @@ async function handler(request) {
             const newUsers = allUserData.filter(users => users.id != userID.friendId);
             if (friendUser) {
                 writeData(newUsers);
-                return new Response(JSON.stringify(friendUser), { headers: headerCORS, status: 200 });
+                return new Response(JSON.stringify(friendUser), { headers: headerCORS, status: 202 });
             } else {
                 return new Response("Something went wrong!", { headers: headerCORS, status: 409 });
             }
