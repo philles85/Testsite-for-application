@@ -35,17 +35,16 @@
         <!-- </transition> -->
         <transition-group name="slide-fade">
             <div v-if="visas" id="profiles">
-                <img id="close-img" @click="visas = !visas" src="close.png">
+                <img id="close-img" @click="visas = !visas" src="../images/close.png">
                 <div v-if="visas" v-for="user of users" :key="user.id" class="profile">
                     <transition name="slide-fade">
                         <!-- Gör det här som en template så vi kan använda om den igen! -->
                         <div v-if="popupId == user.id" id="popup">
-                            <img @click="showPopup(null)" src="close.png">
-                            <p>Accomadation</p>
+                            <img @click="showPopup(null)" src="../images/close.png">
+                            <h2>Accomadation</h2>
                             <ul v-for="addres of user.address">
                                 <li>{{addres}}</li>
                             </ul>
-                            <p>{{user.firstName}}</p>
                         </div>
                         <!-- Hela denna div -->
                     </transition>
@@ -55,7 +54,7 @@
                         <ul>
                             <li>{{user.company.title}}</li>
                             <li>{{ user.firstName }} {{ user.lastName }} <img @mouseover="showHover(user.id)"
-                                    src="free-arrow-down-icon-3101-thumb.png">
+                                    src="../images/free-arrow-down-icon-3101-thumb.png">
                             </li>
                             <p v-if="hover == user.id" @mouseleave="showHover(null)">{{user.email}}</p>
                             <li>{{ user.age }} years old</li>

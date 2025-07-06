@@ -1,6 +1,6 @@
-const { mainSite } = Vue;
+const { createApp } = Vue;
 
-mainSite({
+createApp({
     data() {
         return {
             startVisa: true,

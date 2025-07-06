@@ -3,9 +3,10 @@ const addFriendsRoute = new URLPattern({ pathname: "/addToFriendsList" });
 const getFriendsRoute = new URLPattern({ pathname: "/getFriendList" });
 const removeFriendsRoute = new URLPattern({ pathname: "/removeFriend" });
 
-function readData() {
+async function readData() {
     const dataPath = "../data/users.json";
-    return JSON.parse(Deno.readTextFile(dataPath));
+    const data = await Deno.readTextFile(dataPath);
+    return JSON.parse(data);
 }
 
 async function writeData(data) {
@@ -51,10 +52,9 @@ async function handler(request) {
             const allUsers = await userInfo();
             const correctUser = allUsers.users.find(dataId => dataId.id == data.userId);
             const fileData = await readData();
-            const parsedData = JSON.parse(fileData);
-            if (correctObjekt) {
-                parsedData.push(correctUser)
-                writeData(JSON.stringify(parsedData));
+            if (correctUser) {
+                fileData.push(correctUser)
+                await writeData(fileData);
                 return new Response("Success!", { headers: headerCORS, status: 200 })
             } else {
                 return new Response("Unsucces!", { headers: headerCORS, status: 409 })
@@ -65,8 +65,7 @@ async function handler(request) {
     if (getFriendsMatch) {
         if (request.method == "GET") {
             const allUserData = await readData();
-            const parsedData = JSON.parse(allUserData);
-            return new Response(JSON.stringify(parsedData), { headers: headerCORS, status: 200 })
+            return new Response(JSON.stringify(allUserData), { headers: headerCORS, status: 200 })
         }
     }
 
@@ -74,10 +73,9 @@ async function handler(request) {
         if (request.method == "DELETE") {
             const userID = await request.json();
             const allUserData = await readData();
-            const allUserDataParsed = JSON.parse(allUserData);
-            const friendUser = allUserDataParsed.find(user => user.id == userID.friendId);
-            const newUsers = allUserDataParsed.filter(users => users.id != userID.friendId);
-            writeData(JSON.stringify(newUsers));
+            const friendUser = allUserData.find(user => user.id == userID.friendId);
+            const newUsers = allUserData.filter(users => users.id != userID.friendId);
+            writeData(newUsers);
             return new Response(JSON.stringify(friendUser), { headers: headerCORS, status: 200 });
         }
     }
