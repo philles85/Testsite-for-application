@@ -18,6 +18,13 @@ body {
     font-size: 75px;
 }
 
+#start-page div {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+
 #start-page button {
     padding: 15px;
     border-radius: 10px;
@@ -63,19 +70,12 @@ body {
     display: flex;
 }
 
-
 #upper-part img {
     object-fit: cover;
-    border: 1px solid black;
+    border: var(--border-img);
     border-radius: 50%;
     height: 125px;
     padding: 10px;
-}
-
-#upper-part ul li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 #upper-part ul li img {
@@ -85,10 +85,13 @@ body {
 }
 
 #upper-part ul p {
-    position: absolute;
     z-index: 10;
-    background-color: blue;
+    background-color: white;
+    border-radius: var(--smooth-edges);
+    box-shadow: var(--shadow-box);
     padding: 5px;
+    position: absolute;
+    top: 100px;
 }
 
 

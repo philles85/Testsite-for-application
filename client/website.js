@@ -10,7 +10,7 @@ mainSite({
             friendsList: [],
             closePopup: true,
             listVisa: false,
-            hover: null
+            hover: null,
         }
     },
     methods: {
