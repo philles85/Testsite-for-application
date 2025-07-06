@@ -4,13 +4,13 @@ const getFriendsRoute = new URLPattern({ pathname: "/getFriendList" });
 const removeFriendsRoute = new URLPattern({ pathname: "/removeFriend" });
 
 async function readData() {
-    const dataPath = "../data/users.json";
+    const dataPath = "users.json";
     const data = await Deno.readTextFile(dataPath);
     return JSON.parse(data);
 }
 
 async function writeData(data) {
-    const dataPath = "../data/users.json";
+    const dataPath = "users.json";
     await Deno.writeTextFile(dataPath, JSON.stringify(data, null, 2));
 }
 
