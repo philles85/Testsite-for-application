@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Documentation.css">
+    <title>API Documentation</title>
+</head>
+
+<body>
+    <div id="navigation">
+        <div id="leftNav">Company employes</div>
+        <div id="middleNav" class="navHover"><a class="noLinkStyle"
+                href="https://github.com/philles85/Testsite-for-application" target="_blank">View Repository</a></div>
+        <div id="rightNav" class="navHover"><a class="noLinkStyle"
+                href="https://github.com/philles85/Testsite-for-application/commits/main/" target="_blank">Commits and
+                issues</a></div>
+    </div>
+    <main id="informationContainer">
+        <div class="informationdiv">
+            <h2>Database</h2>
+            <p>View all the employes on this homesite!</p>
+        </div>
+        <div class="informationdiv">
+            <h2>About this project</h2>
+            <p>This project was created to be able to get to know eachother. Through this application the user can
+                become friends with other employes!</p>
+        </div>
+        <div class="informationdiv">
+            <h2>Important information</h2>
+            <p>To access this API and framework, user has to be connected to the internet</p>
+        </div>
+        <div class="informationdiv">
+            <h2>Access API</h2>
+            <ul>
+                <li>To access this API, users <span class="BOLD">connected to internet or wifi.</span></li>
+                <li>Use the correct endpoints listed below for proper functionality.</li>
+            </ul>
+        </div>
+        <div class="informationdiv">
+            <h2>API Endpoints</h2>
+
+        </div>
+        <div class="endPointDiv">
+            <h2>/allUsers</h2>
+            <ul>
+                <li><span class="green BOLD">GET</span>: Returns all the users from the external companys API, this is
+                    returned in JSON format</li>
+            </ul>
+        </div>
+        <div class="statusCodes">
+            <ul>
+                <li><span class="green BOLD">GET</span> <span class="BOLD">Status Codes:</span></li>
+                <li class="indent">200 Success - The list of users is presented</li>
+                <li class="indent">500 Internal Server Error - Server connection issue</li>
+            </ul>
+        </div>
+        <div class="endPointDiv">
+            <h2>/addToFriendsList</h2>
+            <ul>
+                <li><span class="blue BOLD">POST</span>: Sends the userId to server for adding a user as friend</li>
+                <li class="indent">Adds the user as a friend to JSON data</li>
+                <li class="indent">Returns a status message</li>
+            </ul>
+        </div>
+        <div class="statusCodes">
+            <ul>
+                <li><span class="blue BOLD">POST</span> <span class="BOLD">Status Codes:</span></li>
+                <li class="indent">200 Success - User is added successfully</li>
+                <li class="indent">409 Conflict - User already exists as friend</li>
+                <li class="indent">500 Internal Server Error - Server connection issue</li>
+            </ul>
+        </div>
+        <div class="endPointDiv">
+            <h2>/getFriendList</h2>
+            <ul>
+                <li><span class="green BOLD">GET</span>: Returns the friends array list for the user in json format</li>
+            </ul>
+        </div>
+        <div class="statusCodes">
+            <ul>
+                <li><span class="green BOLD">GET</span><span class="BOLD"> Status Codes:</li>
+                <li class="indent">200 Success - The friends list was successfully fetched</li>
+                <li class="indent">500 Internal Server Error - Server connection issue</li>
+            </ul>
+        </div>
+        <div class="endPointDiv">
+            <h2>/removeFriend</h2>
+            <ul>
+                <li><span class="red BOLD">DELETE</span>: Deletes the requested userId in the friends JSON database</li>
+                <li class="indent">Users can select a user to delete</li>
+            </ul>
+        </div>
+        <div class="statusCodes">
+            <ul>
+                <li><span class="red BOLD">DELETE</span> <span class="BOLD">Status Codes:</span></li>
+                <li class="indent">202 Accepted - Request was a success and user is deleted</li>
+                <li class="indent">409 Conflict - Requested user is not in users friends list </li>
+                <li class="indent">500 Internal Server Error - Server connection issue</li>
+            </ul>
+        </div>
+    </main>
+</body>
+
+</html>
