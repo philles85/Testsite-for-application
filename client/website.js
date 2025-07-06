@@ -22,7 +22,7 @@ createApp({
         },
         async addFriendToList(userId) {
             try {
-                const data = await fetch("https://philles85-testsite-fo-55.deno.dev/addToFriendsList", {
+                const data = await fetch("http://localhost:8000/addToFriendsList", {
                     method: "POST",
                     body: JSON.stringify({ userId }),
                     headers: { "Content-Type": "application/json" }
@@ -36,13 +36,13 @@ createApp({
 
         },
         async friendList() {
-            const friendList = await fetch("https://philles85-testsite-fo-55.deno.dev/getFriendList");
+            const friendList = await fetch("http://localhost:8000/getFriendList");
             const friendsListJson = await friendList.json();
             this.friendsList = friendsListJson;
             console.log(friendsListJson);
         },
         async removeFriend(friendId) {
-            const remove = await fetch("https://philles85-testsite-fo-55.deno.dev/removeFriend", {
+            const remove = await fetch("http://localhost:8000/removeFriend", {
                 method: "DELETE",
                 body: JSON.stringify({ friendId }),
                 headers: { "Content-Type": "application/json" }
@@ -56,7 +56,7 @@ createApp({
     },
 
     async mounted() {
-        const data = await fetch("https://philles85-testsite-fo-55.deno.dev/allUsers");
+        const data = await fetch("http://localhost:8000/allUsers");
         const jsonData = await data.json();
         this.users = jsonData.users
     }

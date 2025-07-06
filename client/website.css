@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(/images/best-linkedin-background-9z7stoah6hwp3j7y.jpg);
+    background-image: url(images/best-linkedin-background-9z7stoah6hwp3j7y.jpg);
     background-size: cover;
 }
 
@@ -152,8 +152,6 @@ body {
     border-radius: var(--round-profile);
     border: 1px solid black;
 }
-
-#friends-list ul {}
 
 #friends-list button {
     height: 30px;
