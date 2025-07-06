@@ -3,7 +3,7 @@ const { mainSite } = Vue;
 mainSite({
     data() {
         return {
-
+            
         }
     },
     methods: {
