@@ -1,0 +1,21 @@
+#test div {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    margin: auto;
+    gap: 20px;
+}
+
+#test div div {
+    border: 1px solid black;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#test div button {
+    border: none;
+    border-radius: 10px;
+}

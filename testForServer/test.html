@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="test">
+        <div id="test1">
+            <div :style="{ backgroundColor: tests[1].color }">
+                <h1>{{tests[1].status}}</h1>
+            </div>
+            <button @click="onlyGetPath(`allUsers`, 1)">Test!</button>
+        </div>
+        <div id=" test2">
+            <div :style="{ backgroundColor: tests[2].color }">
+                <h1>{{tests[2].satus}}</h1>
+            </div>
+            <button @click="otherMethodPath('addToFriendsList', 'POST', { userId: 1 }, 2)">Test!</button>
+        </div>
+        <div id="test3">
+            <div :style="{ backgroundColor: tests[3].color }">
+                <p>{{tests[3].status}}</p>
+            </div>
+            <button @click="onlyGetPath(`getFriendList`, 3)">Test!</button>
+        </div>
+        <div id="test4">
+            <div :style="{ backgroundColor: tests[4].color }">
+                <p>{{tests[4].status}}</p>
+            </div>
+            <button @click="otherMethodPath(`removeFriend`, `DELETE`, {friendId: 1}, 4)">Test!</button>
+        </div>
+    </div>
+    </div>
+    <script src="test.js"></script>
+</body>
+
+</html>

@@ -75,8 +75,12 @@ async function handler(request) {
             const allUserData = await readData();
             const friendUser = allUserData.find(user => user.id == userID.friendId);
             const newUsers = allUserData.filter(users => users.id != userID.friendId);
-            writeData(newUsers);
-            return new Response(JSON.stringify(friendUser), { headers: headerCORS, status: 200 });
+            if (friendUser) {
+                writeData(newUsers);
+                return new Response(JSON.stringify(friendUser), { headers: headerCORS, status: 200 });
+            } else {
+                return new Response("Something went wrong!", { headers: headerCORS, status: 409 });
+            }
         }
     }
 }
